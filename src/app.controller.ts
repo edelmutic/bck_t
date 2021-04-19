@@ -1,6 +1,15 @@
-import { Controller } from "@nestjs/common";
+import { Controller, Get } from "@nestjs/common";
+import { AppService } from './app.services';
 
-@Controller()
-export default class AppController {
+@Controller('api')
+export class AppController {
+
+    constructor(private appService: AppService) {
     
+}
+
+    @Get('/users')
+    getUsers () {
+        return this.appService.getUsers()
+    }
 };
